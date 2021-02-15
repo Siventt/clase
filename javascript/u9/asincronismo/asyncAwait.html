@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Asincronismo - Hadouken</title>
+</head>
+<body>
+    <script>
+        /* 
+         *  Acceder a la bd y traer todos los usuarios.
+         *  Buscaremos un id de un usuario
+         *  con el id buscaremos el id de su profesion
+         *  con el id de su profesion buscaremos el nombre
+         */
+
+        const usuarios=[
+            {id:1, nombre: "ricard", profesion_id: 1},
+            {id:2, nombre: "daniel", profesion_id: 1},
+            {id:3, nombre: "antonio", profesion_id: 2}
+        ];
+        const profesiones={
+            1: "programador",
+            2: "diseñador",
+            3: "talabardero",
+            4: "marroquinero"
+        };
+        function getUsuarios(){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    // El código de la consulta DB
+                    let resultado=usuarios;
+                    resolve(resultado)
+                    // reject("ERROR AAAAAAAAAAAAAAAAAAAAAAA");
+                },1200);
+            });
+        };
+        function getUsuario(id){
+            return new Promise((res, rej)=>{
+                setTimeout(()=>{
+                    let usuario = usuarios.filter((usuario)=>usuario.id==id)[0];
+                    res(usuario);
+                },1200);
+            })
+        }
+        function getProfesion(id){
+            return new Promise((res, rej)=>{
+                setTimeout(()=>{
+                    let profesion = profesiones[id];
+                    res(profesion);
+                },1200);
+            })
+        }
+        /* UNA DETRAS DE OTRA
+        getProfesion(1)
+            .then((nombre)=>console.log(nombre))
+            .then(()=>getProfesion(2))
+            .then((nombre)=>console.log(nombre))
+            .then(()=>getProfesion(3))
+            .then((nombre)=>console.log(nombre)) 
+        */
+        /* Promise.all([getProfesion(1),getProfesion(2),getProfesion(3)])
+            .then((respuesta)=>{
+                for(r of respuesta){
+                    console.log(r);
+                }
+            }); 
+        */
+        async function DevolverProfesion(){
+
+            let usuarios = await getUsuarios();
+            let usuario = await getUsuario();
+            let profesion = await getProfesion();
+
+            return(profesion);
+        }
+        console.log(DevolverProfesion());
+    </script>
+</body>
+</html>

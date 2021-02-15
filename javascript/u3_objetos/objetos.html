@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* var poligono_regular = {}; // Lo mismo que: var poligono_regular = new Object();
+
+        poligono_regular.lado = 4;
+
+        poligono_regular.area=function (){
+            return poligono_regular.lado*poligono_regular.lado;
+        } */
+        
+        let poligono_regular ={
+            lados:4,
+            tamano:2,
+            nombre:'Cuadrado',
+            area:function(){
+                return this.lados*this.lados;
+            }
+        };
+        poligono_regular.color='verde';
+
+        delete poligono_regular.color;
+
+        for (let prop in poligono_regular){
+            if(typeof poligono_regular[prop]!='function')
+                console.log(`${prop} tiene el valor ${poligono_regular[prop]}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(()=>{
+            console.log("Esto aparece primero?");
+        },0);
+        console.log("Sorpresa");
+
+        const datos = [{
+            id:1,
+            titulo:'Breakfast in America',
+            year: 1979
+        },{
+            id:2,
+            titulo:'Automatic for the People',
+            year: 1992
+        },{
+            id:3,
+            titulo:'Alchemy: Dire Straits libe',
+            year: 1984
+        }];
+        /* const getDatos = ()=>datos; */
+
+        /* Esto da undefined, los datos no están a tiempo. */
+        const getDatos=()=>{setTimeout(()=>datos,1500);}
+        console.log(getDatos());
+        
+    </script>
+</body>
+</html>

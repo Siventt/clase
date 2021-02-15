@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            /*  Hay que comprobar siempre que los datos introducidos son los pedidos 
+            *   y mostrar adecuadamente los resultados.
+            *   
+            *   1. Hacer una página web que pida dos palabras y nos muestre si son
+            *   iguales (sin tener en cuenta mayusculas o minusculas).
+            */
+
+            var cad1=prompt("Cádena uno:");
+            var cad2=prompt("Cádena dos:");
+
+            console.log(cad1);
+            console.log(cad2);
+
+            if(cad1==null || cad2==null)
+                document.write("Cancelado.");
+            else{
+                    if(cad1.toLocaleLowerCase().localeCompare(cad2.toLocaleLowerCase())==0)
+                        document.write("Son iguales.");
+                    else
+                        document.write("No son iguales.");
+            }
+    </script>
+</body>
+</html>

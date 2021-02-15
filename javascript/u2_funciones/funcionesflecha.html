@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        triple=function(num){
+            return num*3;
+        }
+        doble=function(num){
+            return num*2;
+        }
+        function multiplicar(lista,f){
+            var multiplicado=[];
+            for( let i of lista){
+                multiplicado.push(f(i));
+            }
+            return multiplicado;      
+        }
+        numeros = [0,1,2,3,4,5,6,7,8,9];
+
+        const cubo=c=>c*c*c;
+        
+        const saludo=()=>document.write("hola");
+
+        const salto=()=>document.write("<br>");
+
+        // Hacer una función flecha que devuelva verdadero si un número es par o falso si es impar.
+        // Asigna la función a una variable y prueba varios ejemplos.
+
+        const espar=n=>n%2 ? false:true;
+
+        const espar=n=>!(n%2);
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navegar el dom</title>
+</head>
+<body>
+    <section id="s1">
+        <h1 id="titulo">El titulo</h1>
+        <p id="parrafo1">Lorem, ipsum <b id="b1">dolor</b> sit amet consectetur adipisicing elit. Pariatur, consequatur?</p>
+        <p id="parrafo2">Neque quasi fugiat iste sapiente, quia est <b>voluptates</b> id numquam.</p>
+        <p id="parrafo3">Maiores quidem similique <b>vero</b> dolore, tenetur odit pariatur autem in.</p>
+    </section>
+    <script>
+/*         let seccion=document.getElementById("s1"); // Prueba con parrafo1
+
+        for (let hijo of seccion.childNodes)
+            document.write(`Texto: ${hijo.nodeValue} - Tipo de nodo: ${hijo.nodeType}
+            - Nombre: ${hijo.nodeName} <br>`);
+
+        document.write('<br>');
+        for (let hijo of seccion.children)
+            document.write(`Texto: ${hijo.nodeValue} - Tipo de nodo: ${hijo.nodeType}
+            - Nombre: ${hijo.nodeName} <br>`);
+
+        for (let hijo of seccion.children)
+            document.write(`Texto: ${hijo.nodeValue} - Tipo de nodo: ${hijo.nodeType}
+            - Nombre: ${hijo.nodeName} <br> HTML: ${hijo.innerHTML}`);
+ */
+        let b1 = document.getElementById("b1");
+        document.write(b1.innerHTML,' ',b1.parentNode.innerHTML);
+        // next y prebious sibling
+        document.write(b1.parentNode.previousElementSibling.innerHTML);
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>eventos2</title>
+        <style>
+        #marco{
+            /* padding: 3px 0; */
+            border: 1px solid green;
+        }
+        #parrafo{
+            border: 1px solid brown;
+        }
+        #palabra{
+            border: 1px solid red;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- Propagación de eventos en JavaScript -->
+    <div id="marco">
+        <p id="parrafo">Pincha <span id="palabra">aquí</span> y mira la consola.</p>
+    </div>
+    <script>
+        let marco = document.getElementById("marco");
+        marco.addEventListener("click",()=>console.log("Soy el marco."));
+        document.getElementById("parrafo").addEventListener("click",()=>console.log("Soy el párrafo."));
+        document.getElementById("palabra").addEventListener("click",()=>console.log("Soy la palabra"));
+        </script>
+</body>
+</html>

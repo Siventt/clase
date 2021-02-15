@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Puntos(x=0,y=0){
+            if(isNaN(x)){
+                x=0;
+            }
+            if(isNaN(y)){
+                y=0;
+            }
+            this.x = x;
+            this.y = y;
+            this.mover=(x,y)=>{this.x=x; this.y=y};
+            this.copia=()=>new Puntos(x,y);
+            this.igualQue=(punto)=>this.x==punto.x && this.y==punto.y ? true : false;
+            this.distanciaCoor=(punto)=>`La distancia es ${punto.x-this.x}X y ${punto.y-this.y}Y.`;
+            this.distanciaLin=(punto)=>Math.sqrt((punto.x-this.x)**2+(punto.y-this.y)**2);
+            this.ubicacion=()=>`Coordenadas: (${this.x},${this.y})`;
+        }
+        var punto0 = new Puntos(2,4);
+        var punto1 = new Puntos("dawd",3);
+        var punto2 = new Puntos(1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const datos = [{
+            id:1,
+            titulo:'Breakfast in America',
+            year: 1979
+        },{
+            id:2,
+            titulo:'Automatic for the People',
+            year: 1992
+        },{
+            id:3,
+            titulo:'Alchemy: Dire Straits libe',
+            year: 1984
+        }];
+        const getDatos= ()=>{
+            return new Promise((res,rej)=>{
+                setTimeout(()=>{
+                    res(datos);
+                },1500);
+            });
+        };
+        getDatos().then((datos)=>{console.log(datos)});
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*   2. Hacer una página web que cuente las vocales de una frase introducida 
+        *    por teclado.
+        */
+        var cadena = prompt("Introduce tu cadena:");
+        var car;
+        var vocales=0;
+
+        for(let aux = 0; aux<=cadena.length; aux++){
+            
+            car = cadena.charAt(aux);
+
+            if(car=="a" || car=="e" || car=="i" || car=="o" || car=="u")
+                vocales++;
+        }
+        document.write(`La cadena "${cadena}" tiene ${vocales} vocales.`);
+    </script>
+</body>
+</html>

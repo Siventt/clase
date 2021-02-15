@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #lista{
+            border: 2px solid blue;
+            width: 30%;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo</h1>
+    <p id="muestraPaginas"></p>
+    <ul id="lista"></ul>
+    <button id="anterior">Anterior</button>
+    <button id="siguiente">Siguiente</button>
+
+    <script>
+        var miArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+        var pagina = 0;
+        var lista = document.getElementById("lista");
+        var muestraPaginas = document.getElementById("muestraPaginas");
+        function actuLista(){
+            
+            lista.innerHTML="";
+            muestraPaginas.innerHTML=`Página: ${pagina}`;
+            let index = pagina*5;
+            let fin = index+5;
+            for(index;index<fin;index++){
+                lista.innerHTML+=`<li>${miArray[index]}</li>`;
+            }
+        }
+        actuLista();
+        document.getElementById("anterior").addEventListener("click",()=>{
+            if(pagina>0){
+                pagina--;
+                actuLista();
+            }
+        });
+        document.getElementById("siguiente").addEventListener("click",()=>{
+            if(pagina<(miArray.length/5)-1){
+                pagina++;
+                actuLista();
+            }
+        });
+
+    </script>
+</body>
+</html>

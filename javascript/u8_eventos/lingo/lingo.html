@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tHe KiNg Of LiNgO</title>
+    <style>
+        #top{
+            display: flex;
+            flex-wrap: wrap-reverse;
+            flex-direction: row;
+        }
+        #info{
+            flex-basis: 25%;
+            padding: 10px;
+        }
+        #contenedor{
+            flex-basis: 70%;
+            padding: 10px;
+        }
+        .fila{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            margin: 0 0 20px 0;
+        }
+        .letra{
+            font-size: 4em;
+            width: 60px;
+            height: 80px;
+            margin: 0 35px 0 0;
+            text-align: center;
+            border: 2px solid gray;
+            border-radius: 6px;
+            box-shadow: black 5px 5px 10px;
+        }
+        .inputLetra{
+            height: 60px;
+            padding: 10px 0;
+            margin: 0 30px 0 0;
+        }
+        #enviar{
+            position: absolute;
+        }
+        #leyenda{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            border-top: 3px solid black;
+            width: 90%;
+            margin: 0 2.5% 0 2.5%;
+        }
+        #leyenda div span{
+            width: 20px;
+            height: 20px;
+        }
+        .rojo{
+            background-color: red;
+        }
+        .amarillo{
+            background-color: yellow;
+        }
+        .verde{
+            background-color: green;
+        }
+        h4{
+            margin: 5px 0;
+        }
+        input[type="file"]{
+            width: 100%;
+        }
+        #zona_DnD{
+            width: 200px;
+            height: 200px;
+            border: 2px dashed black;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+        <div id="info">
+            <h4>Estado:</h4>
+            <p id="estado">Esperando palabras...</p>
+            <h4>Sube tus propias palabras</h4>
+            <p><input type="file" name="files[]" id="fichero"></p>
+            <div id="zona_DnD"></div>
+            <h4>Mensaje:</h4>
+            <p id="mensaje">Tienes 5 intentos para adivinar una palabra de 5 letras. ¡Suerte!</p>
+            <h4>¿Quieres probar otra vez?</h4>
+            <button id="reset" disabled>Reiniciar</button>
+            <div id="leyenda">
+                <div>
+                    <span class="rojo">Rojo</span> -> Letra incorrecta
+                </div>
+                <div>
+                    <span class="amarillo">Amarillo</span> -> Letra correcta, posición incorrecta
+                </div>
+                <div>
+                    <span class="verde">Verde</span> -> Letra correcta, posición correcta
+                </div>
+            </div>
+        </div>
+        <div id="contenedor">
+            <div> <!-- Sirve para separar la fila de input de las otras -->
+                <div class="fila">
+                    <form action="#">
+                        <input type="text" name="letra1" class="letra inputLetra" id="letra0" maxlength="1">
+                        <input type="text" name="letra2" class="letra inputLetra" id="letra1" maxlength="1">
+                        <input type="text" name="letra3" class="letra inputLetra" id="letra2" maxlength="1">
+                        <input type="text" name="letra4" class="letra inputLetra" id="letra3" maxlength="1">
+                        <input type="text" name="letra5" class="letra inputLetra" id="letra4" maxlength="1">
+                        
+                        <input type="submit" id="enviar" value="Enviar palabra" disabled>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import * as lingo from "./modules/lingo.js";
+        
+        /* Eventos que controlan el movimiento entre los inputs.
+        * No funciona completamente todavía.
+        * E.g. Solo debería dejar escribir letras.
+        *      (Habría que hacer otro evento con keydown)
+        *      Si escribes muy rápido se pierde.
+        *      (Quizá no se puede arreglar)
+        *      Borrar a veces te deja al principio y otras al final.
+        *      (Ni idea por qué)
+        */    
+        let entradas = document.forms[0];
+        const letras = /^[a-zñA-ZÑ]{1}$/;
+        
+        entradas[0].addEventListener("keyup",(ev)=>{
+            siguienteInput(ev.key, 1)
+        });
+        entradas[1].addEventListener("keyup",(ev)=>{
+            siguienteInput(ev.key, 2);
+            anteriorInput(ev.key, 0);
+        });
+        entradas[2].addEventListener("keyup",(ev)=>{
+            siguienteInput(ev.key, 3);
+            anteriorInput(ev.key, 1);
+        });
+        entradas[3].addEventListener("keyup",(ev)=>{
+            siguienteInput(ev.key, 4);
+            anteriorInput(ev.key, 2);
+        });
+        entradas[4].addEventListener("keyup",(ev)=>{
+            anteriorInput(ev.key, 3)
+        });
+        function siguienteInput(tecla, num){
+            if(letras.test(tecla)) 
+            entradas[num].focus();
+        }
+        function anteriorInput(tecla, num){
+            if(tecla=="Backspace" | tecla=="Delete")
+            entradas[num].focus();
+        }
+        
+        // Lector de palabras desde fichero.
+        var palabraS = [];
+        var palClave;
+        document.getElementById("fichero").addEventListener('change', crearPalabras);
+        var estado = document.getElementById("estado");
+        async function crearPalabras(ev){
+                estado.innerText="Cargando palabras.";
+                
+                console.log(ev.target.id);
+                
+                if(ev.target.id=="zona_DnD"){
+                    var contenido = await manejarDrop(ev);
+                }else{
+                    var contenido = await leerFichero(ev);
+                }
+                
+                let sueltas = contenido.split(",");
+            sueltas.pop();
+            for( let s of sueltas)
+                palabraS.push(s);
+            
+            palClave = palabraS[parseInt(Math.random()*palabraS.length)];
+            console.log(palabraS);
+            console.log(palClave);
+
+            document.getElementById("enviar").removeAttribute("disabled");
+            document.getElementById("reset").removeAttribute("disabled");
+            estado.innerText="Palabras cargadas.";
+        }
+        function leerFichero(ev){
+            return new Promise((res,rej)=>{
+                let fichero = ev.target.files[0];
+                let lector = new FileReader();
+                
+                lector.addEventListener("load",(ev)=>{
+                    res(ev.target.result);
+                });
+                lector.readAsText(fichero);
+            })
+        }
+        // Lector Drag And Drop
+        document.getElementById("zona_DnD").addEventListener("dragover",manejarDnD);
+        function manejarDnD(ev){
+            ev.stopPropagation();
+            ev.preventDefault();
+            ev.dataTransfer.dropEffect="copy";
+        }
+        document.getElementById("zona_DnD").addEventListener("drop",crearPalabras);
+        function manejarDrop(ev){
+            ev.stopPropagation();
+            ev.preventDefault();
+            
+            return new Promise((res, rej)=>{
+                var fichero = ev.dataTransfer.files[0];
+                let lector = new FileReader(); 
+                console.log(fichero.name);
+    
+                lector.addEventListener("load",(ev)=>{
+                    res(ev.target.result);
+                });
+                lector.readAsText(fichero);
+            })
+        }
+        /* Previene el submit y comprueba la entrada del usuario.
+         * Si es correcta continua el juego.
+         */
+        var intentos = 0;
+        document.getElementById("enviar").addEventListener("click",(ev)=>{
+            ev.preventDefault();
+            let pal = lingo.hacerPalabra(entradas).toLocaleLowerCase();
+            let expreg = /^[a-zñ]{5}$/;
+            
+            if(expreg.test(pal)){
+                mensaje = document.getElementById("mensaje");
+                estado.innerHTML="Jugando.";
+                
+                console.log(pal);
+                console.log(palClave);
+                console.log(pal.localeCompare(palClave));
+
+                if(pal.localeCompare(palClave)==0){
+                    mensaje.innerHTML=`<h1>Era ${palClave} ¡Has Ganado!</h1>`;
+                    estado.innerText="Juego finalizado.";
+                    ev.target.disabled=true;
+                }else{
+                    intentos++;
+                    if(intentos==5){
+                        mensaje.innerHTML=`<h2>Has llegado a 5 intentos, era ${palClave}. Fin del juego.</h2>`;
+                        estado.innerHTML="Juego finalizado."
+                        ev.target.disabled=true;
+                    }else{
+                        mensaje.innerHTML=`Estás en el intento ${intentos}.`;
+                        let coloreS = lingo.comprobarLetras(pal,palClave);
+                        lingo.crearFila(pal,coloreS);
+                    }
+                }                
+            }else{
+                mensaje.style="color:red";
+                mensaje.innerHTML="Introduce 5 letras.";
+            }
+        });
+        /* Reiniciar el juego */
+        document.getElementById("reset").addEventListener("click",()=>{
+            palClave = palabraS[parseInt(Math.random()*palabraS.length)];
+            console.log(palClave);
+            let filas = document.querySelectorAll("#contenedor > .fila");
+            console.log(filas);
+            for(let f of filas){
+                f.remove();
+            }
+            for(let e of entradas){
+                e.value="";
+            }
+            document.getElementById("enviar").disabled=false;
+            document.getElementById("enviar").value="Enviar palabra";
+            estado.innerText="Preparado.";
+        });
+    </script>
+</body>
+</html>

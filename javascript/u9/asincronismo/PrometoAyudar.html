@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Asincronismo - Hadouken</title>
+</head>
+<body>
+    <script>
+        /* 
+         *  Acceder a la bd y traer todos los usuarios.
+         *  Buscaremos un id de un usuario
+         *  con el id buscaremos el id de su profesion
+         *  con el id de su profesion buscaremos el nombre
+         */
+
+        const usuarios=[
+            {id:1, nombre: "ricard", profesion_id: 1},
+            {id:2, nombre: "daniel", profesion_id: 1},
+            {id:3, nombre: "antonio", profesion_id: 2}
+        ];
+        const profesiones={
+            1: "programador",
+            2: "diseñador"
+        };
+        function getUsuarios(){
+            return new Promise((resolved, rejected)=>{
+                setTimeout(()=>{
+                    // El código de la consulta DB
+                    let resultado=usuarios;
+                    resolved(resultado)
+                    /* rejected("ERROR AAAAAAAAAAAAAAAAAAAAAAA"); */
+                },1200);
+            });
+        };
+        function getUsuario(id){
+            return new Promise((res, rej)=>{
+                setTimeout(()=>{
+                    let usuario = usuarios.filter((usuario)=>usuario.id==id)[0];
+                    res(usuario);
+                },1200);
+            })
+        }
+        function getProfesion(id){
+            return new Promise((res, rej)=>{
+                setTimeout(()=>{
+                    let profesion = profesiones[id];
+                    res(profesion);
+                },1200);
+            })
+        }
+        getUsuarios()
+            .then((usuarios)=>getUsuario(usuarios[2].id))
+                .then((usuario)=>getProfesion(usuario.profesion_id))
+                    .then((nomProfesion)=>console.log(nomProfesion))
+            .catch((er)=>{console.log("error en las promesas", er)});
+                
+        /* getUsuarios((usuariosDevueltos)=>{
+            const usuarioId=usuariosDevueltos[0].id;
+
+            getUsuario(usuarioId,(usuarioDevuelto)=>{
+                const profesionId = usuarioDevuelto.profesion_id;
+
+                getProfesion(profesionId,(profesion)=>{
+                    console.log(profesion);
+                })
+            })
+        }) */
+    </script>
+</body>
+</html>
