@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventos5</title>
+    <style>
+        #caja{
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            background-color: green;
+            width: 50%;
+            height: 50%;
+            z-index: 1;
+        }
+        #cartel{
+            position: absolute;
+            background-color: red;
+            padding: 0.5em;
+            top:0px;
+            left:0px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <p id="info">Info</p>
+    <div id="caja"></div>
+    <div id="cartel"></div>
+
+    <script>
+        let caja = document.getElementById("caja");
+        let cartel = document.getElementById("cartel");
+
+        caja.addEventListener("mousemove",ev=>{
+            document.getElementById("info").innerHTML=(`Info: X:${ev.clientX} Y:${ev.clientY}`);
+            cartel.style.display="block";
+            cartel.style.left=ev.clientX+20+"px";
+            cartel.style.top=ev.clientY+10+"px";
+            cartel.innerHTML=document.getElementById("info").innerHTML;
+        });
+        caja.addEventListener("mouseleave",ev=>{
+            cartel.style.display="none";
+        });
+    </script>
+</body>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventos7</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col bg-primary display-4">
+                <p>Anulación de comportamientos predeterminados.</p>
+            </div>
+        </div>
+        <div class="row">
+            <a href="https://www.google.com">Ir a Google</a>
+        </div>
+        <div class="row">
+            <button class="btn btn-warning" disabled>Cancelar</button>
+        </div>
+        <div class="row">
+            <button class="btn btn-secondary" disabled>Aceptar</button>
+        </div>
+    </div>
+    <script>
+        let botones = document.getElementsByTagName("button");
+        document.getElementsByTagName("a")[0].addEventListener("click",manejar);
+        botones[0].addEventListener("click",cancelar);
+        botones[1].addEventListener("click",aceptar);
+
+        function manejar(event){
+            event.preventDefault();
+            for(let btn of botones){
+                btn.removeAttribute("disabled");
+            }
+        }
+        function aceptar(){
+            location="https://www.google.com";
+        }
+        function cancelar(){
+            for(let btn of botones){
+                btn.setAttribute("disabled","true");
+            }            
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

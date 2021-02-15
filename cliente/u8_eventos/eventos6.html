@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventos5</title>
+    <style>
+        #caja{
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            background-color: green;
+            width: 50%;
+            height: 50%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="caja"></div>
+
+    <script>
+        let caja = document.getElementById("caja");
+
+        document.addEventListener("keypress",ev=>{
+            if(ev.key="a"){
+                caja.style.backgroundColor="red";
+            }
+            if(ev.key="d"){
+                caja.style.backgroundImage=url("https://picsum.photos/200/300");
+            }
+        });
+    </script>
+</body>

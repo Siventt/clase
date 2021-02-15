@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax - Fetch Petición Especial</title>
+</head>
+<body>
+    <ul id="info"></ul>
+    <script>
+
+        let info = document.getElementById("info");
+
+        fetch('https://jorgesanchez.net/servicios/nifaleatorio.php?n=10&tipo=dni',{
+            method:"get",
+            mode:"cors"
+        })
+            .then(res=>{
+                if(res.ok)
+                    return res.json();
+                else
+                    throw new Error("Los datos no llegan bien");
+            })
+            .then(listaNif=>{
+                for(let dni of listaNif)
+                    info.innerHTML += `<li>${dni.numero}</li>`;
+            })
+            .catch(er=>{
+                console.log(er);
+            })
+    </script>
+</body>
+</html>

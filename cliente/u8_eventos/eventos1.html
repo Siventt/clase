@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventos1</title>
+</head>
+<body>
+    <!-- Como introducir eventos en HTML/JavaScript -->
+    <label for="nombre1"></label>
+    <input type="text" id="nombre1">
+    <button onclick="
+                    /*  1. A lo bruto. 
+                    let nuevo=document.createElement('li');
+                    nuevo.innerHTML=document.getElementById('nombre1').value;
+                    document.getElementById('listaAniadir').appendChild(nuevo); */
+                    ">Añadir</button>
+    <button id="boton2">Añadir2</button>
+    <button id="boton3">Añadir3</button>
+    <div class="lista">
+        <ul id="listaAniadir">
+            <li>Primero</li>
+        </ul>
+    </div>
+    <script>
+        // 2. Metiendo una función al .onclick
+        let boton2 = document.getElementById("boton2");
+        boton2.onclick=aniadirElemento;
+        // También funciona con función flecha.
+        function aniadirElemento(){
+            let nuevo=document.createElement('li');
+            nuevo.innerHTML=document.getElementById('nombre1').value;
+            document.getElementById('listaAniadir').appendChild(nuevo);
+        }
+        // 3. Usando el EventListener. La buena forma de hacerlo.
+
+        let boton3 = document.getElementById("boton3");
+        boton3.addEventListener("click",aniadirElemento);
+        boton3.addEventListener("click",()=>alert("OK"));
+    </script>
+</body>
+</html>

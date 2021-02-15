@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generación de Errores Propios</title>
+</head>
+<body>
+    <script>
+        let miError = new Error("No es un numero");
+
+        try{
+            let x=1;
+            if(isNaN(x)){
+                throw new Error("Ufff mala pinta");
+            }
+            //throw new Error("Ayy la madre");
+        }catch(e){
+            infoError(e);
+        }finally{
+            console.log("Siempre me voy de fiesta");
+        }
+
+        function infoError(e){
+            console.log(e.name," ",e.message);
+        }
+    </script>
+</body>
+</html>

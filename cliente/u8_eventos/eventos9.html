@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventos9</title>
+    <style>
+        .contenedor{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .titulo{
+            background-color: palegreen;
+            border-radius: 10px;
+            text-align: center;
+            padding: 1em;
+        }
+        label, input{
+            display: block;
+            float: left;
+            margin: 0 0 10px 0;
+        }
+        label{
+            text-align: right;
+            width: 70px;
+            padding: 0 10px 0 0;
+        }
+        fieldset{
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="columna">
+            <div class="titulo">
+                <h1>Izquierda</h1>
+            </div>
+            <button id="activo">Activo</button>
+            <button id="selecciona">Selecciona la clave</button>
+            <button id="tamanio">Tamaño Seleccionado</button>
+            <fieldset>
+                <label for="desde">Desde</label>
+                <input type="text" id="desde">
+            </fieldset>
+            <fieldset>
+                <label for="hasta">Hasta</label>
+                <input type="text" id="hasta">
+            </fieldset>
+            <button id="seleccionar">Seleccionar</button>
+        </div>
+        <div class="columna">
+            <div class="titulo">
+                <h1>Formulario</h1>
+            </div>
+            <form action="#">
+                <fieldset>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre">
+                </fieldset>
+                <fieldset>
+                    <label for="calve">Clave</label>
+                    <input type="text" name="clave" id="clave">
+                </fieldset>
+                <fieldset>
+                    <label for="socio">Socio</label>
+                    <input type="radio" name="socio" id="socio" value="socio">
+                    <label for="invitado">Invitado</label>
+                    <input type="radio" name="socio" id="invitado" value="invitado">
+                    <label for="pago">Pago</label>
+                    <input type="radio" name="socio" id="pago" value="pago">
+                </fieldset>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+        <div class="columna">
+            <div class="titulo">
+                <h1>Descripción</h1>
+            </div>
+            <p id="mensaje"></p>
+        </div>
+    </div>
+    <script>
+        let formu = document.forms[0];
+        let usuario = document.getElementById("nombre");
+        let mensaje = document.getElementById("mensaje");
+
+        formu.addEventListener("submit",ev=>{
+            let expreg = /^[a-zA-Z0-9]{4,}$/;
+            if(expreg.test(usuario.value)==false){
+                ev.preventDefault();
+                mensaje.style="color:red";
+                mensaje.innerText = "Nombre de usuario no válido";
+            }else{
+                mensaje.innerText = "";
+            }
+        });
+        document.getElementById("activo").addEventListener("click",ev=>{
+            let radioS = document.querySelectorAll("input[type='radio']");
+            
+            for(let radio of radioS){
+                if(radio.checked){
+                    mensaje.innerText=radio.value;
+                }
+            }
+        });
+        document.getElementById("selecciona").addEventListener("click",ev=>{
+            let clave = document.getElementById("clave");
+            clave.focus();
+            clave.setSelectionRange(0,clave.value.length);
+        });
+        document.getElementById("tamanio").addEventListener("click",()=>{
+            mensaje.innerHTML=usuario.selectionStart;
+            mensaje.innerHTML=mensaje.innerHTML + " " + usuario.selectionEnd;
+            mensaje.innerHTML=mensaje.innerHTML + " " + usuario.value[usuario.selectionStart];
+            mensaje.innerHTML=mensaje.innerHTML + " " + usuario.value[usuario.selectionEnd-1];
+        });
+        document.getElementById("seleccionar").addEventListener("click",()=>{
+            let inicio = document.getElementById("desde").value;
+            let final = document.getElementById("hasta").value;
+
+            usuario.focus();
+            usuario.setSelectionRange(inicio,final);
+            mensaje.innerHTML = usuario.value.slice(inicio,final);
+        });
+    </script>
+</body>
+</html>
