@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refrescos</title>
+</head>
+<body>
+    <!-- Hacer una clase de refrescos.
+         atributos: nombre, marca,
+         sabor, cantidad, tipo.
+         metodos: abrir, beber(10cl o todo),
+         llenar -->
+    <script>
+        function Refresco(nombre, marca, sabor, tipo, cantidad=33){
+            this.nombre=nombre;
+            this.marca=marca;
+            this.sabor=sabor;
+            this.tipo=tipo;
+            this.cantidadTotal=cantidad;
+            this.cantidadActual=cantidad;
+            this.abierto=false;
+
+            this.abrir=()=>this.abierto=true;
+            this.beber=(c)=>{
+                if(this.abierto)
+                    this.cantidadActual = this.cantidadActual>=c ? this.cantidadActual-c : 0
+                else
+                    console.log("¡El refresco está cerrado!");
+            };
+            this.llenar=(c)=>{
+                if(this.abierto)
+                    this.cantidadActual = this.cantidadTotal<=c ? c : this.cantidadTotal;
+                else
+                    console.log("¡El refresco está cerrado!");
+            };
+            this.toString=()=>`Refresco: ${this.nombre}, ${this.marca}, `+
+                `${this.sabor}, ${this.tipo}, ${this.cantidad}, ${this.abierto ? "Abierto" : "Cerrado"}`;
+        }
+        let r1=new Refresco("Fanta","CocaCola","Limón","Normal");
+
+        function RefrescoAlcoholico(nombre, marca, sabor, tipo, grados, cantidad=33){
+            this.__proto__= new Refresco(nombre,marca,sabor,tipo,cantidad);
+            this.grados = grados;
+        }
+        let a1=new RefrescoAlcoholico("Ginebra","Lairos","Fuego","Alcohólica","20","100");
+    </script>
+</body>
+</html>

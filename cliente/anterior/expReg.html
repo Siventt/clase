@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let expNif=/[0-9]{8}[A-Z]/;
+        let expNie=/[KLXYZ][0-9]{7}/;
+
+        let exp2Nif= new RegExp('[0-9]{8}[A-Z]');
+        let exp2Nie= new RegExp('[KLXYZ][0-9]{7}');
+
+        // Como se evalua una expresion regular
+
+        console.log(exp2Nif.test("01234567A"));
+        console.log(exp2Nie.test("K0123456"));
+
+        let e2=/ca/i;
+        // La i hace que sea independiente de mayus o minus
+        console.log(e2.test("alcasa"));
+        console.log(e2.test("ALCASA"));
+
+        // Código postal válido
+        
+        let codPostal=/[0-5]{1}[0-9]{4}/;
+
+        console.log(codPostal.test(30510));
+        // Mentira porque llega hasta el 52, y esto da 53+ como válido.
+
+        // Solo un valor:
+        let reg = /^[0-9]$/;
+
+        reg.test(10); // false.
+    </script>
+</body>
+</html>

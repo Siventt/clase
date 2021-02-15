@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Fondo Aleatorio</title>
+    <style>
+        div{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        document.write('<div style="background-color:',
+            'rgb(',Math.random()*255,',',Math.random()*255,',',Math.random()*255,')">');
+        document.write("<h1>Ejemplo</h1>");
+        document.write("</div>");
+
+    </script>
+    
+</body>
+</html>

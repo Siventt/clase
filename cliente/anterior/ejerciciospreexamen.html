@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Pre-Examen</title>
+</head>
+<body>
+    <script>
+        // Array de palabras unicas en orden inverso.
+        var palabras = new Array();
+        var conjunto = new Set();
+
+        var p=prompt("Introduce una palabra:");
+        while(p!=null && p!=''){
+            
+            palabras.push(p.trim());
+            p=prompt("Introduce una palabra:");
+        }
+        /*palabras.forEach(p=>conjunto.add(p));
+        palabras = [];
+        conjunto.forEach(p=>palabras.push(p));
+        palabras.sort((a,b)=>b.localeCompare(a, "es"));
+        */
+        // Mapa cuenta repeticiones.
+        function contarrepes(palabras){
+            var repes = new Map(); 
+            for(p of palabras)
+                repes.has(p) ? repes.set(p, repes.get(p)+1) : repes.set(p,1)
+            return repes;
+        }
+        // FIBONACCI TIME
+        function fibonacci(fin){
+            let a=0;
+            let b=1;
+            do{
+                console.log(a);
+                console.log(b);
+                a = a+b;
+                b = b+a;
+            }while((a<fin));
+        }
+    </script>
+</body>
+</html>

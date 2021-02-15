@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        vector = [0,0,0,0,0,0,0,0,0,0];
+        var con=0
+        var entrada=0;
+        while(con<vector.length && entrada>=0){
+
+            entrada = parseInt(prompt("Número entero:"));
+
+            if(entrada>=0){
+                vector[con]=entrada;
+            }
+            con++;
+        }
+        con--;
+        for (let i=0;i<con;i++)
+            document.write(vector[i],"<br>");
+    </script>
+</body>
+</html>

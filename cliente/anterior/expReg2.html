@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let frase="Que bonito es un entierro:\n"+
+            "Con sus caballitos blancos,\n"+
+            "con sus caballitos negros,\n"+
+            "Con su caja de pino\n"+
+            "y su muertito dentro.";
+
+        console.log(frase);
+    /* 
+        while(frase.indexOf('caballitos')!=-1){
+            frase = frase.replace('caballitos','burritos');
+        } */
+
+        frase = frase.replace(/su/gi,'mi');
+
+        console.log(frase);
+    </script>
+</body>
+</html>

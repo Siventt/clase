@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function PoligonoRegular(lados, nombre){
+            this.lados=lados;
+            this.nombre=nombre;
+            this.mostrarInfo=()=>`Soy un ${this.nombre} y tengo ${this.lados} lados \n`;
+        }
+        PoligonoRegular.prototype.u=5;
+        PoligonoRegular.prototype.anguloInterior=()=>{100*(this.lados-2)/this.lados;}
+
+        function Cuadrado(){
+            this.__proto__=new PoligonoRegular(4,'cuadrado');
+            this.mostrarInfo=()=>'Hola soy un cuadrado';
+            this.soloDelCuadrado='Solo para cuadrados';
+        }
+        let a = new PoligonoRegular(4,'cuadrado');
+        let b = new PoligonoRegular(3,'triangulo');
+        let c = new Cuadrado();
+    </script>
+</body>
+</html>

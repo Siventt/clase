@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>uno</li>
+        <li>tres</li>
+        <li>dos</li>
+        <li>cinco</li>
+        <li>seis</li>
+        <li>dos</li>
+    </ul>
+    <script>
+        var nodos = document.querySelectorAll("li");
+
+        var elementoS = [...nodos];
+
+        for(let n of nodos){
+            n.parentElement.removeChild(n);
+        }
+    </script>
+</body>
+</html>

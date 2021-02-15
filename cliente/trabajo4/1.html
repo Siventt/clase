@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var vector_numeros = new Array();
+
+        for(let i=0;i<10;i++){
+            vector_numeros[i] = parseInt(Math.random()*10+1)
+        }
+        document.write("Valor Cuadrado Cubo <br>")
+        for(let i of vector_numeros){
+            document.write(i);
+            document.write("&nbsp");
+            document.write(i**2);
+            document.write("&nbsp");
+            document.write(i**3);
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

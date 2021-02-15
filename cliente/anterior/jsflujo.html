@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Tablas A Medida</title>
+		<!-- hacer una pagina web que te pida el numero de filas y columnas, y la pinte. -->
+	</head>
+	<body>
+		<script>
+			var filas = prompt("Número de filas:");
+
+			document.write("<table><tbody>");	
+			for(let imp = 0; imp<filas; imp++){
+				document.write("<tr>");
+				
+				var columnas = prompt("Número de columnas:");			
+				for(let aux = 0; aux<columnas; aux++){
+					document.write("<td>",imp);
+				}
+					document.write(aux,"</td>");
+			}
+				document.write("</tr>");
+		</script>
+			document.write("</tbody></table>");
+	</body>
+	</html>

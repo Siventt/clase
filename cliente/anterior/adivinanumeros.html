@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinator</title>
+</head>
+<body>
+    <h1>Juego de Adivinar</h1>
+    <script>
+        var num = parseInt(Math.random()*100+1);
+        var res;
+        var intentos = 0;
+        var juego = true;
+        while(juego){
+            res = prompt("Adivina el número entre 1 y 100:");
+            if(res==null){
+                // Terminar juego, cancelar.
+                juego = false;
+                document.write("Juego cancelado.")
+            }
+            else if(isNaN(res)){
+                // Termina juego, no es un numero.
+                juego = false;
+                document.write(res," no es un número.")
+            }
+            else{
+                if(res==num){
+                    // Termina juego, acierto.
+                    document.write("¡Enhorabuena, has acertado!")
+                    juego = false;
+                }
+                else{
+                    // Sigue el juego.
+                    intentos++;
+                    if(intentos>=10){ // Acaba el juego.
+                        document.write("Límite de intentos.")
+                        juego = false;
+                    }
+                }
+            }
+        }
+        document.write("<br>El número era ",num);
+        document.write("<br>Nº de intentos: ",intentos);
+    </script>
+</body>
+</html>

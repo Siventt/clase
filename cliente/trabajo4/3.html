@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var notas = new Array();
+        var total=0;
+        var entrada;
+
+        for(let i=0;i<5;i++){
+            entrada = prompt("Nota del alumno:");
+            if(entrada>=0 && entrada<=10){
+                notas.push(parseInt(entrada));
+            }
+            else{
+                i--;
+            }
+        }
+        console.log(notas);
+        for(let i of notas){
+            document.write(i,"<br>");
+            total = total + i;
+        }
+        notas.sort((a,b)=>a-b);
+
+        document.write("La media es "+(total/notas.length)+"<br>");
+        document.write("La máxima nota es "+notas.pop()+"<br>");
+        document.write("La mínima nota es "+notas.shift()+"<br>");
+    </script>
+</body>
+</html>
