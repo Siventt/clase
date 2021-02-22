@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="notas_bis.xsl"?>
+<Centro>
+    <Personal>
+        <Profesor Categoria="Técnico Secundaria" tutor="Bachillerato">
+            <Nombre>Antonio</Nombre>
+            <Apellidos>García</Apellidos>
+            <Direccion>García</Direccion>
+        </Profesor>
+        <Profesor Categoria="Profesor Secundaria" tutor="ESO_4">
+            <Nombre>María</Nombre>
+            <Apellidos>Pérez</Apellidos>
+            <Direccion>García</Direccion>
+        </Profesor>
+        <Alumnos DNI="0000000A" Oferta="Humanidades">
+            <Nombre>Juan</Nombre>
+            <Apellidos>Abril</Apellidos>
+            <Direccion>Direccion1</Direccion>
+            <Curso>Bachillerato</Curso>
+            <Asignaturas Asignatura="Lengua">5</Asignaturas>
+            <Asignaturas Asignatura="Inglés">8</Asignaturas>
+        </Alumnos>
+        <Alumnos DNI="0000000C" Oferta="Bilingüe">
+            <Nombre>Ana</Nombre>
+            <Apellidos>López</Apellidos>
+            <Direccion>García</Direccion>
+            <Curso>ESO_4</Curso>
+            <Asignaturas Asignatura="E.F.">9</Asignaturas>
+        </Alumnos>
+        <Alumnos DNI="0000000F" Oferta="Normal">
+            <Nombre>Eva</Nombre>
+            <Apellidos>López García</Apellidos>
+            <Direccion>C/ Lopez de Vega</Direccion>
+            <Curso>ESO_4</Curso>
+        </Alumnos>
+        <Alumnos DNI="0000000B" Oferta="Ciencias">
+            <Nombre>Andrés</Nombre>
+            <Apellidos>Zamora</Apellidos>
+            <Direccion>Direccion1</Direccion>
+            <Curso>Bachillerato</Curso>
+            <Asignaturas Asignatura="Lengua">1</Asignaturas>
+            <Asignaturas Asignatura="Inglés">5</Asignaturas>
+            <Asignaturas Asignatura="E.F.">9</Asignaturas>
+            <Asignaturas Asignatura="Mate">3</Asignaturas>
+        </Alumnos>
+    </Personal>
+</Centro>

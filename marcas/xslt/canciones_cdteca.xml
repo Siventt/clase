@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cdteca_001.xsl"?>
+<cdteca>
+    <cd>
+        <titulo>La Carretera</titulo>
+        <artista wiki="https://es.wikipedia.org/wiki/Julio_Iglesias"
+            foto="https://enterate24backup.s3.amazonaws.com/uploads/2020/09/AD49FF4C-FFF5-4F99-AC5F-F3A85118C9E1-1280x717-1.jpeg">
+            Julio Iglesias</artista>
+        <cancion tiempo="281">La Carretera</cancion>
+        <cancion tiempo="233">Cosas de la Vida</cancion>
+        <cancion tiempo="230">Baila Morena</cancion>
+        <cancion tiempo="216">Derroche</cancion>
+        <cancion tiempo="206">El ultimo verano</cancion>
+        <cancion tiempo="268">Agua Dulce, Agua Sala</cancion>
+        <cancion tiempo="254">Sin Excusas Ni Rodeos</cancion>
+        <cancion tiempo="164">Mal de Amores</cancion>
+        <cancion tiempo="247">Rumbas</cancion>
+        <cancion tiempo="191">Vuela Alto</cancion>
+        <sello>Sony BMG</sello>
+        <anyo>1995</anyo>
+    </cd>
+    <cd>
+        <titulo>Yo soy aquel</titulo>
+        <artista wiki="https://es.wikipedia.org/wiki/Raphael_(cantante)"
+            foto="https://ep01.epimg.net/ccaa/imagenes/2018/09/27/catalunya/1538072526_835009_1538074530_noticia_normal.jpg">
+            Raphael</artista>
+        <cancion tiempo="162">Yo soy aquel</cancion>
+        <cancion tiempo="130">Es verdad</cancion>
+        <cancion tiempo="201">La noche</cancion>
+        <cancion tiempo="185">Hasta Venecia</cancion>
+        <sello>Hispavox</sello>
+        <anyo>1966</anyo>
+    </cd>
+    <cd>
+        <titulo>Have a nice day</titulo>
+        <artista wiki="https://es.wikipedia.org/wiki/Jon_Bon_Jovi"
+            foto="https://lh3.googleusercontent.com/proxy/sKhpBO-J_eT01ylZJOp9z9-Xz4oMkkWtXM_UO_vsSkAd_XoGN1LwLlAeMa28y9Y2jyl1YCrvEJY5BDu-a7JH246pT4P3IAkug68B4_YRYEFyBVEUGsIkVsgaYUO4LzxQdXSaU1ZZiIwnT8JUtqa9LgDZ1om8FhRPMERCuWY3Gg">
+            Jon Bon Jovi</artista>
+        <cancion tiempo="216">Have A Nice Day</cancion>
+        <cancion tiempo="229">I Wanna Be Loved</cancion>
+        <cancion tiempo="227">Welcome To Wherever You Are</cancion>
+        <cancion tiempo="230">Who Says You Can't Go Home?</cancion>
+        <cancion tiempo="271">Last Man Standing</cancion>
+        <cancion tiempo="296">Bells Of Freedom</cancion>
+        <cancion tiempo="254">Wildflowers</cancion>
+        <cancion tiempo="218">Last Cigarette</cancion>
+        <cancion tiempo="234">I Am</cancion>
+        <cancion tiempo="217">Complicated</cancion>
+        <cancion tiempo="289">Novocaine</cancion>
+        <cancion tiempo="249">Story Of My Life</cancion>
+        <cancion tiempo="234">Dirty Little Secret</cancion>
+        <sello>Island Records</sello>
+        <anyo>2005</anyo>
+    </cd>
+    <cd>
+        <titulo>La Vida Es</titulo>
+        <artista>Raphael</artista>
+        <cancion tiempo="213">Llegas Tu</cancion>
+        <cancion tiempo="246">Miami</cancion>
+        <cancion tiempo="209">La Vida Es</cancion>
+        <cancion tiempo="237">Nuestro Mejor Dia</cancion>
+        <cancion tiempo="210">Lleno De Energia</cancion>
+        <cancion tiempo="256">En El Tren</cancion>
+        <cancion tiempo="226">Celos</cancion>
+        <cancion tiempo="257">Vivire</cancion>
+        <cancion tiempo="215">Volver A Vivir</cancion>
+        <cancion tiempo="254">Creo</cancion>
+        <cancion tiempo="223">Comenzar De Cero</cancion>
+        <cancion tiempo="214">Tu Me Das</cancion>
+        <cancion tiempo="233">Lejos De Mi</cancion>
+        <cancion tiempo="225">Llegas Tu</cancion>
+        <sello>Island Records</sello>
+        <anyo>2000</anyo>
+    </cd>
+    <cd>
+        <titulo>Can't get enough</titulo>
+        <artista>Barry White</artista>
+        <cancion tiempo="112">Mellow Mood (Pt. 1)</cancion>
+        <cancion tiempo="276">You're the First, the Last, My Everything</cancion>
+        <cancion tiempo="621">I Can't Believe You Love Me</cancion>
+        <cancion tiempo="274">Can't Get Enough of Your Love, Babe</cancion>
+        <cancion tiempo="234">Oh Love, Well We Finally Made It</cancion>
+        <cancion tiempo="299">I Love You More Than Anything (In This World Girl)</cancion>
+        <cancion tiempo="83">Mellow Mood (Pt. 2)</cancion>
+        <sello>20th Century</sello>
+        <anyo>1974</anyo>
+    </cd>
+    <cd>
+        <titulo>Abbey Road</titulo>
+        <artista>The Beatles</artista>
+        <cancion tiempo="260">Come Together</cancion>
+        <cancion tiempo="183">Something</cancion>
+        <cancion tiempo="207">Maxwell's Silver Hammer</cancion>
+        <cancion tiempo="206">Oh! Darling</cancion>
+        <cancion tiempo="171">Octopus's Garden</cancion>
+        <cancion tiempo="467">I Want You (She's So Heavy)</cancion>
+        <sello>Apple Records</sello>
+        <anyo>1969</anyo>
+    </cd>
+    <cd>
+        <titulo>Thriller</titulo>
+        <artista>Raphael</artista>
+        <cancion tiempo="362">Wanna Be Startin' Somethin'</cancion>
+        <cancion tiempo="260">Baby Be Mine</cancion>
+        <cancion tiempo="222">The Girl Is Mine</cancion>
+        <cancion tiempo="357">Thriller</cancion>
+        <cancion tiempo="259">Beat It</cancion>
+        <cancion tiempo="294">Billie Jean</cancion>
+        <cancion tiempo="245">Human Nature</cancion>
+        <cancion tiempo="238">P.Y.T (Pretty Young Thing)</cancion>
+        <cancion tiempo="299">The Lady In My Life</cancion>
+        <sello>Epic Records</sello>
+        <anyo>1982</anyo>
+    </cd>
+    <cd>
+        <titulo>Pies descalzos</titulo>
+        <artista>Shakira</artista>
+        <cancion tiempo="231">Estoy aqui</cancion>
+        <cancion tiempo="254">Antologia</cancion>
+        <cancion tiempo="244">Un poco de amor</cancion>
+        <cancion tiempo="252">Quiero</cancion>
+        <cancion tiempo="240">Te necesito</cancion>
+        <cancion tiempo="234">Vuelve</cancion>
+        <cancion tiempo="204">Te espero sentada</cancion>
+        <cancion tiempo="206">Pies descalzos, suenos blancos</cancion>
+        <cancion tiempo="150">Pienso en ti</cancion>
+        <cancion tiempo="232">Donde estas corazon?</cancion>
+        <cancion tiempo="218">Se quiere, se mata</cancion>
+        <sello>Sony BMG</sello>
+        <anyo>1995</anyo>
+    </cd>
+</cdteca>

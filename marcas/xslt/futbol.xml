@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="futbol.xsl"?>
+<equipos>
+   <equipo>
+        <nombre>Real Burgos</nombre>
+       <golesafavor>20</golesafavor>
+       <golescontra>21</golescontra>
+       <puntos>09</puntos>
+   </equipo>
+    <equipo>
+        <nombre>Baracaldo</nombre>
+        <golesafavor>12</golesafavor>
+        <golescontra>15</golescontra>
+        <puntos>08</puntos>
+    </equipo>
+    <equipo>
+         <nombre>Barcelona C</nombre>
+            <golesafavor>41</golesafavor>
+            <golescontra>5</golescontra>
+            <puntos>23</puntos>
+    </equipo>
+    <equipo>
+        <nombre>Sevilla At.</nombre>
+        <golesafavor>13</golesafavor>
+        <golescontra>12</golescontra>
+        <puntos>14</puntos>
+        </equipo>
+    <equipo>
+        <nombre>At madrid</nombre>
+        <golesafavor>10</golesafavor>
+        <golescontra>12</golescontra>
+        <puntos>22</puntos>
+    </equipo>
+    <equipo>
+        <nombre>Betis</nombre>
+        <golesafavor>50</golesafavor>
+        <golescontra>46</golescontra>
+        <puntos>22</puntos>
+    </equipo>
+    <equipo>
+        <nombre>Valencia</nombre>
+        <golesafavor>50</golesafavor>
+        <golescontra>9</golescontra>
+        <puntos>22</puntos>
+    </equipo>
+   <equipo>
+        <nombre>Real Madrid</nombre>
+       <golesafavor>10</golesafavor>
+       <golescontra>2</golescontra>
+       <puntos>30</puntos>
+   </equipo>
+    <equipo>
+        <nombre>Barcelona</nombre>
+        <golesafavor>30</golesafavor>
+        <golescontra>5</golescontra>
+        <puntos>30</puntos>
+    </equipo>
+    <equipo>
+         <nombre>Barcelona B</nombre>
+            <golesafavor>4</golesafavor>
+            <golescontra>5</golescontra>
+            <puntos>03</puntos>
+    </equipo>
+    <equipo>
+        <nombre>Sevilla</nombre>
+        <golesafavor>60</golesafavor>
+        <golescontra>12</golescontra>
+        <puntos>40</puntos>
+        </equipo>
+    <equipo>
+        <nombre>Valencia B</nombre>
+        <golesafavor>21</golesafavor>
+        <golescontra>9</golescontra>
+        <puntos>22</puntos>
+    </equipo>
+    <equipo>
+        <nombre>Burgos</nombre>
+        <golesafavor>24</golesafavor>
+        <golescontra>9</golescontra>
+        <puntos>90</puntos>
+    </equipo>
+    <equipo>
+        <nombre>Zamora</nombre>
+        <golesafavor>24</golesafavor>
+        <golescontra>9</golescontra>
+        <puntos>25</puntos>
+    </equipo>
+</equipos>
